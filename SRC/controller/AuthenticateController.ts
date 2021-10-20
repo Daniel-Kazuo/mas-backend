@@ -12,6 +12,9 @@ class AuthenticateController{
 
         return response.json(auth);
     }
+    async show (request: Request, response:Response){
+        
+    }
 }
 
 export {AuthenticateController};
