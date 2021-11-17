@@ -1,18 +1,17 @@
-import {Column, CreateDateColumn, Entity, PrimaryColumn} from 'typeorm'
-import {v4 as uuid} from 'uuid';
-
+import {Entity, Column, CreateDateColumn, PrimaryColumn} from 'typeorm';
+import { v4 as uuid} from 'uuid';
 
 @Entity("users")
-class User {
+class User{
 
     constructor(){
         if(!this.id){
-            this.id = uuid()
+            this.id = uuid();
         }
     }
 
     @PrimaryColumn()
-    readonly id:string;
+    readonly id: string;
 
     @Column()
     name: string;
@@ -21,11 +20,10 @@ class User {
     email: string;
 
     @Column()
-    password: string;
+    password: string
 
     @CreateDateColumn()
-    create_at: Date;
-
+    created_at:Date
 }
 
-   export {User}
+export {User};

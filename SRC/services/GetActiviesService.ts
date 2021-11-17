@@ -1,27 +1,25 @@
 import { getRepository } from "typeorm";
 import { Activy } from "../model/Activy";
 
-interface UserId {
-    id?: string;
+interface UserId{
+    id?:string
 }
 
-class GetActiviesService {
-
-    public async execute({id}:UserId){
-
+class GetActiviesService{
+    
+    public async execute(data:UserId){
         const activyRepository = getRepository(Activy);
 
-        const activies = activyRepository.find();
+        const activies = await activyRepository.find({relations: ["course_unit"]});
 
         if(!activies){
-            return{
+            return {
                 message:"activies not found"
             }
         }
 
         return activies;
     }
-
 }
 
-export {GetActiviesService};
+export {GetActiviesService}

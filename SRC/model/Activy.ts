@@ -1,5 +1,5 @@
-import {Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn,JoinTable} from 'typeorm'
-import {v4 as uuid} from 'uuid';
+import {Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinTable} from 'typeorm';
+import { v4 as uuid} from 'uuid';
 import { CourseUnit } from './CourseUnit';
 
 @Entity("activies")
@@ -7,7 +7,7 @@ class Activy {
 
     constructor(){
         if(!this.id){
-            this.id = uuid()
+            this.id = uuid();
         }
     }
 
@@ -31,9 +31,7 @@ class Activy {
 
     @ManyToOne(() => CourseUnit, course_unit => course_unit.activies)
     @JoinTable()
-    course_unit: CourseUnit 
-
+    course_unit: CourseUnit
 }
-
 
 export {Activy}
